@@ -1,5 +1,3 @@
-[TOC]
-
 ## 任务
 
 实现分布式 MapReduce，包含 coordinator 和 worker。worker 和 coordinator 通过 RPC 通信，每一个 worker 进程会向 coordinator 请求一个任务，从一个或多个文件中读取任务输入，执行任务，将任务输出写到一个或多个文件中。如果 worker 执行任务超时（10s），coordinator 会将任务分配给其他 worker。
@@ -129,6 +127,8 @@ type GetTaskReply struct {
 ### 3. FinishTask
 
 ```Go
+// finish task
+
 type FinishTaskArgs struct {
     WorkerId     int    // worker identity
     TaskType     int    // 0 map 1 reduce
